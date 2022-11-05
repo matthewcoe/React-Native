@@ -1,14 +1,16 @@
 import { useState } from 'react';
 import { ScrollView, Text, View } from 'react-native';
 import { Card } from 'react-native-elements';
+import { useTheme } from '@react-navigation/native';
 import { CAMPSITES } from '../shared/campsites';
 import { PROMOTIONS } from '../shared/promotions';
 import { PARTNERS } from '../shared/partners';
 
 const FeaturedItem = ({ item }) => {
+    const { colors } = useTheme();
     if (item) {
         return (
-            <Card containerStyle={{ padding: 0 }}>
+            <Card containerStyle={{ backgroundColor: colors.card, padding: 0 }}>
                 <Card.Image source={item.image}>
                     <View style={{ justifyContent: 'center', flex: 1 }}>
                         <Text
