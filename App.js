@@ -1,5 +1,7 @@
 import Main from './screens/MainComponent';
 import { NavigationContainer, DefaultTheme } from '@react-navigation/native';
+import { Provider } from 'react-redux';
+import { store } from './redux/store';
 
 const MyTheme = {
   dark: true,
@@ -13,8 +15,10 @@ const MyTheme = {
 
 export default function App() {
   return (
-    <NavigationContainer theme={MyTheme}>
-      <Main />
-    </NavigationContainer>
+    <Provider store={store}>
+      <NavigationContainer theme={MyTheme}>
+        <Main />
+      </NavigationContainer>
+    </Provider>
   );
 }
